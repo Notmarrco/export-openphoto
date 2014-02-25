@@ -88,6 +88,7 @@ if __name__ == '__main__':
   parser.add_argument('--consumer-secret')
   parser.add_argument('--token')
   parser.add_argument('--token-secret')
+  parser.add_argument('--disable-ssl-verify', help="Disable ssl check for server with self signed certificate", action="store_true")
   parser.add_argument('--debug', help="Print extra debug information", action="store_true")
   config = parser.parse_args()
 
@@ -121,6 +122,9 @@ if __name__ == '__main__':
       print
       print error
       sys.exit(1)
+
+  if config.disable_ssl_verify:
+    client.configure(ssl_verify=False)
 
   # check if a fetched directory exist else create it
   createDirectorySafe('fetched')
