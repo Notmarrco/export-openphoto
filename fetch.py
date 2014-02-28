@@ -8,6 +8,7 @@ from trovebox import Trovebox
 # Only the following fields will be exported:
 # (from https://github.com/photo/export-openphoto/issues/2)
 EXPORT_FIELDS = ["appid",
+                 "albums",
                  "dateTaken",
                  "dateUploaded",
                  "description",
